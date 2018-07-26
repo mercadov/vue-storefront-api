@@ -8,9 +8,21 @@ import middleware from './middleware';
 import api from './api';
 import config from 'config';
 import img from './api/img';
+import https from 'https';
+import fs from 'fs';
 
 let app = express();
-app.server = http.createServer(app);
+
+if (process.env.STOREFRONT_API_SSL_ENABLED) {
+    var sslOptions = {
+      key: fs.readFileSync(process.env.STOREFRONT_API_SSL_KEY_PATH),
+      cert: fs.readFileSync(process.env.STOREFRONT_API_SSL_CERT_PATH)
+    };
+
+    https.createServer(sslOptions, app);
+} else {
+    app.server = http.createServer(app);
+}
 
 // logger
 app.use(morgan('dev'));
