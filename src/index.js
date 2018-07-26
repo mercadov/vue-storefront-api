@@ -19,7 +19,7 @@ if (process.env.STOREFRONT_API_SSL_ENABLED) {
       cert: fs.readFileSync(process.env.STOREFRONT_API_SSL_CERT_PATH)
     };
 
-    https.createServer(sslOptions, app);
+    app.server = https.createServer(sslOptions, app);
 } else {
     app.server = http.createServer(app);
 }
