@@ -1,0 +1,102 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "elasticsearch": {
+    "host": "localhost",
+    "port": 9200,
+    "user": "elastic",
+    "password": "changeme",
+    "indices": [
+      "vue_storefront_catalog"
+    ]
+  },
+  "redis": {
+    "host": "10.158.0.5",
+    "port": 6379,
+    "password": "PaHYiMzaS5dC",
+    "db": 3
+  },
+  "kue": {},
+  "availableStores": [
+  ],
+  "storeViews": {
+    "multistore": false,
+    "mapStoreUrlsFor": []
+  },
+  "authHashSecret": "__SECRET_CHANGE_ME__",
+  "objHashSecret": "__SECRET_CHANGE_ME__",
+  "cart": {
+    "setConfigurableProductOptions": false
+  },
+  "tax": {
+    "defaultCountry": "BR",
+    "defaultRegion": "",
+    "calculateServerSide": true,
+    "alwaysSyncPlatformPricesOver": false,
+    "usePlatformTotals": true,
+    "setConfigurableProductOptions": true,
+    "sourcePriceIncludesTax": false
+  },
+  "bodyLimit": "100kb",
+  "corsHeaders": [
+    "Link"
+  ],
+  "platform": "magento2",
+  "registeredExtensions": [
+    "mailchimp-subscribe",
+    "example-magento-api",
+    "cms-data"
+  ],
+  "extensions": {
+    "mailchimp": {
+      "listId": "e06875a7e1",
+      "apiKey": "a9a3318ea7d30f5c5596bd4a78ae0985-us3",
+      "apiUrl": "https://us3.api.mailchimp.com/3.0"
+    }
+  },
+  "magento2": {
+    "url": "http://admin.mercadov.com",
+    "imgUrl": "http://meradov.com:8080/pub/media/catalog/product",
+    "assetPath": "/../var/magento2-sample-data/pub/media",
+    "magentoUserName": "",
+    "magentoUserPassword": "",
+    "httpUserName": "",
+    "httpUserPassword": "",
+    "api": {
+      "url": "http://10.158.0.4/rest",
+      "consumerKey": "akwdw9oa5hwmnlr7a6748i2tn3djjji4",
+      "consumerSecret": "etgiibhken7mrjd0bc8m1454nn5r2ms3",
+      "accessToken": "61f9c8rlgjjjwh35j6lc4l6e5v9vudne",
+      "accessTokenSecret": "5h2is7v0uf6rvaegmv105v1riih7f23m"
+    }
+  },
+  "imageable": {
+    "namespace": "",
+    "maxListeners": 512,
+    "imageSizeLimit": 1024,
+    "timeouts": {
+      "convert": 5000,
+      "identify": 100,
+      "download": 1000
+    },
+    "whitelist": {
+      "allowedHosts": [
+        ".*divante.pl",
+        ".*vuestorefront.io",
+        "localhost"
+      ],
+      "trustedHosts": [
+        "localhost",
+	"10.158.0.4",
+	"admin.meradov.com",
+	"mercadov.com"
+      ]
+    },
+    "keepDownloads": true,
+    "maxDownloadCacheSize": 1000,
+    "tmpPathRoot": "/tmp",
+    "debug": false
+  }
+}

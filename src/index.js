@@ -13,7 +13,7 @@ import fs from 'fs';
 
 let app = express();
 
-if (process.env.STOREFRONT_API_SSL_ENABLED) {
+if (process.env.STOREFRONT_API_SSL_ENABLED === 'true') {
     var sslOptions = {
       key: fs.readFileSync(process.env.STOREFRONT_API_SSL_KEY_PATH),
       cert: fs.readFileSync(process.env.STOREFRONT_API_SSL_CERT_PATH)
@@ -21,6 +21,7 @@ if (process.env.STOREFRONT_API_SSL_ENABLED) {
 
     app.server = https.createServer(sslOptions, app);
 } else {
+    console.log("Using regular HTTP");
     app.server = http.createServer(app);
 }
 
@@ -31,6 +32,7 @@ app.use('/media', express.static(__dirname + config[config.platform].assetPath))
 
 // 3rd party middleware
 app.use(cors({
+    origin: 'http://mercadov.com',
     exposedHeaders: config.corsHeaders,
 }));
 
